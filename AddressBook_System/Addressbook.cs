@@ -84,11 +84,11 @@ namespace AddressBook_System
         }
         public void Display()
         {
-            Console.WriteLine("\n");
+           // Console.WriteLine("\n");
             Console.WriteLine("Contacts in Your Device : ");
             foreach (var contact in addressList)
             {
-                Console.WriteLine(contact.FirstName + "\t" + contact.LastName + "\t" + contact.City + "\t" + contact.MobileNumber + "\t" + contact.Zip + "\t" + contact.Address + "\t" + contact.Email + "\t" + contact.State);
+                Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
             }
         }
     }
