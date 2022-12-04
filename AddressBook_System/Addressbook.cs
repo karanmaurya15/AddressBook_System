@@ -17,7 +17,7 @@ namespace AddressBook_System
         {
             foreach (var contact in addressList)
             {
-                if (contact.FirstName == name || contact.LastName == name)
+                if (contact.UniqueName == name)
                 {
                     Console.WriteLine("Choose the field you want to edit : \n 1. First name \n 2. Last name \n 3. Address \n 4. City \n 5. State \n 6. Zip code \n 7. Phone Number \n 8. Email");
                     int choice = Convert.ToInt32(Console.ReadLine());
@@ -74,7 +74,7 @@ namespace AddressBook_System
             
             foreach (var contact in addressList)
             {
-                if (contact.FirstName == name || contact.LastName == name)
+                if (contact.UniqueName == name)
                 {
                     addressList.Remove(contact);
                 }

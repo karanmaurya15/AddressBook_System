@@ -15,7 +15,7 @@
                 switch (option)
                 {
                     case 1:
-                        Console.WriteLine("Enter the Contact details of FirstName, LastName, Address, City, State, Zip, Ph.no, Email : ");
+                        Console.WriteLine("Enter the Contact details of FirstName, LastName, Address, City, State, Zip, Ph.no, Email, UniqueName : ");
                         contact = new Contact()
                         {
                             FirstName = Console.ReadLine(),
@@ -26,10 +26,12 @@
                             Zip = Console.ReadLine(),
                             MobileNumber = Console.ReadLine(),
                             Email = Console.ReadLine(),
+                            UniqueName = Console.ReadLine(),
+
                         };
                         break;
                     case 2:
-                        Console.WriteLine("Enter the Contact Information to Add, in form of FirstName, LastName, Addr, City, State, Zip, Mobile Number, Email.");
+                        Console.WriteLine("Enter the Contact Information to Add, in form of FirstName, LastName, Addr, City, State, Zip, Mobile Number, Email, UniqueName");
                         contact = new Contact()
                         {
                             FirstName = Console.ReadLine(),
@@ -40,26 +42,27 @@
                             Zip = Console.ReadLine(),
                             MobileNumber = Console.ReadLine(),
                             Email = Console.ReadLine(),
+                            UniqueName = Console.ReadLine(),
                         };
                         addressBook.AddContact(contact);
                         addressBook.Display();
                         break;
                     case 3:
-                        Console.WriteLine("Enter the Contact Name to  Edit: ");
+                        Console.WriteLine("Enter the Unique Name to  Edit: ");
                         string name = Console.ReadLine();
                         addressBook.EditContact(name);
                         Console.WriteLine("Contact is Edited Sucsessfully");
                         addressBook.Display();
                         break;
                     case 4:
-                        Console.WriteLine("Enter the contact you want to delete :");
+                        Console.WriteLine("Enter the Unique name of contact you want to delete :");
                         string detail = Console.ReadLine();
                         Addressbook delete = new Addressbook();
                         delete.DeleteContact(detail);
                         delete.Display();
                         break;
                     case 5:
-                        Console.WriteLine("Enter the Contact Information to Add, in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email.");
+                        Console.WriteLine("Enter the Contact Information to Add, in form of FirstName, LastName, Addr, City, State, Zip, Ph.No, Email, UniqueName");
                         contact = new Contact()
                         {
                             FirstName = Console.ReadLine(),
@@ -70,6 +73,7 @@
                             Zip = Console.ReadLine(),
                             MobileNumber = Console.ReadLine(),
                             Email = Console.ReadLine(),
+                            UniqueName = Console.ReadLine(),
                         };
                         addressBook.AddContact(contact);
                         Console.WriteLine("Contact is Saved");
