@@ -9,8 +9,8 @@
             Addressbook addressBook = new Addressbook();
             while (flag)
             {
-                Console.WriteLine("Welcome to the Address Book Program");
-                Console.WriteLine("Enter what you want to do : \n 1. Create Contacts \n 2. Add Contacts \n 3. Edit Contact \n 4. Delete Contact \n 5. Add Multiple Contact \n 6. Exit");
+                Console.WriteLine("Welcome to the Address Book Program\n");
+                Console.WriteLine("Enter what you want to do : \n 1. Create Contacts \n 2. Add Contacts \n 3. Edit Contact \n 4. Delete Contact \n 5. Add Multiple Contact \n 6. Check For Duplicate Entry \n 7. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -27,7 +27,6 @@
                             MobileNumber = Console.ReadLine(),
                             Email = Console.ReadLine(),
                             UniqueName = Console.ReadLine(),
-
                         };
                         break;
                     case 2:
@@ -80,6 +79,9 @@
                         addressBook.Display();
                         break;
                     case 6:
+                        addressBook.CheckDuplicateEntry();
+                        break;
+                    case 7:
                         flag = false;
                         break;
                 }
