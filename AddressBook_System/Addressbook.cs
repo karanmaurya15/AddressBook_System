@@ -114,9 +114,9 @@ namespace AddressBook_System
                 Console.WriteLine("Enter City: ");
                 string city = Console.ReadLine();
                 var DuplicateCheck = addressList.Where(e => e.City.Equals(city));
-                foreach (var item in DuplicateCheck)
+                foreach (var contact in DuplicateCheck)
                 {
-                    Console.WriteLine($"\nFound {item.FirstName} {item.LastName} with {item.UniqueName} as Unique Address Book residing in {city}.");
+                    Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
                 }
             }
             if (input == 2)
@@ -124,12 +124,13 @@ namespace AddressBook_System
                 Console.WriteLine("Enter State: ");
                 string state = Console.ReadLine();
                 var DuplicateCheck = addressList.Where(e => e.State.Equals(state));
-                foreach (var item in DuplicateCheck)
+                foreach (var contact in DuplicateCheck)
                 {
-                    Console.WriteLine($"\nFound {item.FirstName} {item.LastName} with {item.UniqueName} as Unique Address Book residing in {state}.");
+                    Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
                 }
             }
+            else
+                Console.WriteLine("\nEnter Valid Input");
         }
-
     }
 }
