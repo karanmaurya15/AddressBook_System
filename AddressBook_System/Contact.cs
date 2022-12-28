@@ -17,6 +17,5 @@ namespace AddressBook_System
         public string State { get; set; }
         public  string Zip { get; set; }
         public  string UniqueName { get; set; }
-
     }
 }

@@ -105,5 +105,31 @@ namespace AddressBook_System
                 Console.WriteLine("Error occured ! The Name : {0}, is already Exists in Address Book", checkD);
             }
         }
+        public void SearchContact()
+        {
+            Console.WriteLine("\nEnter 1 to Search by City \nEnter 2 to Search by State");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 1)
+            {
+                Console.WriteLine("Enter City: ");
+                string city = Console.ReadLine();
+                var DuplicateCheck = addressList.Where(e => e.City.Equals(city));
+                foreach (var item in DuplicateCheck)
+                {
+                    Console.WriteLine($"\nFound {item.FirstName} {item.LastName} with {item.UniqueName} as Unique Address Book residing in {city}.");
+                }
+            }
+            if (input == 2)
+            {
+                Console.WriteLine("Enter State: ");
+                string state = Console.ReadLine();
+                var DuplicateCheck = addressList.Where(e => e.State.Equals(state));
+                foreach (var item in DuplicateCheck)
+                {
+                    Console.WriteLine($"\nFound {item.FirstName} {item.LastName} with {item.UniqueName} as Unique Address Book residing in {state}.");
+                }
+            }
+        }
+
     }
 }
