@@ -132,5 +132,25 @@ namespace AddressBook_System
             else
                 Console.WriteLine("\nEnter Valid Input");
         }
+        public void CountContact()
+        {
+            Console.WriteLine("\nEnter 1 to Count by City \nEnter 2 to Count by State");
+            int input = Convert.ToInt32(Console.ReadLine());
+            if (input == 1)
+            {
+                Console.WriteLine("Enter City: ");
+                string city = Console.ReadLine();
+                List<Contact> cityList = addressList.FindAll(e => e.City == city);
+                Console.WriteLine("The Number of contact persons in the city {0} are {1}", city, cityList.Count());
+            }
+            if (input == 2)
+            {
+                Console.WriteLine("Enter State: ");
+                Console.WriteLine("Enter the state name to check its count : ");
+                string state = Console.ReadLine();
+                List<Contact> stateList = addressList.FindAll(e => e.State == state);
+                Console.WriteLine("The number of contact persons in the state {0} are {1}", state, stateList.Count());
+            }
+        }
     }
 }
