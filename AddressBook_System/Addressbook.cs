@@ -156,11 +156,42 @@ namespace AddressBook_System
         }
         public void AddressBookSorting()
         {
-            var objSort = addressList.OrderByDescending(x => x.FirstName);
-            Console.WriteLine("\nSorted Contacts ====> ");
-            foreach (var item in objSort)
+            Console.WriteLine("\nEnter the following Options to Sort by: \n1.Name \n2.City \n3.State \n4.Zip");
+            int input = Convert.ToInt32(Console.ReadLine());
+            switch (input)
             {
-                Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
+                case 1:
+                    var SortByName = addressList.OrderByDescending(x => x.FirstName);
+                    Console.WriteLine("\nSorted Contacts by Name :- ");
+                    foreach (var item in SortByName)
+                    {
+                        Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
+                    }
+                    break;
+                case 2:
+                    var SortByCity = addressList.OrderByDescending(x => x.City);
+                    Console.WriteLine("\nSorted Contacts by City :- ");
+                    foreach (var item in SortByCity)
+                    {
+                        Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
+                    }
+                    break;
+                case 3:
+                    var SortByState = addressList.OrderByDescending(x => x.State);
+                    Console.WriteLine("\nSorted Contacts by State :- ");
+                    foreach (var item in SortByState)
+                    {
+                        Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
+                    }
+                    break;
+                case 4:
+                    var SortByZip = addressList.OrderByDescending(x => x.Zip);
+                    Console.WriteLine("\nSorted Contacts by Zip :- ");
+                    foreach (var item in SortByZip)
+                    {
+                        Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
+                    }
+                    break;
             }
         }
     }
