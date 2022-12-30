@@ -10,7 +10,7 @@
             while (flag)
             {
                 Console.WriteLine("Welcome to the Address Book Program\n");
-                Console.WriteLine("Enter what you want to do : \n 1. Create Contacts \n 2. Add Contacts \n 3. Edit Contact \n 4. Delete Contact \n 5. Add Multiple Contact \n 6. Check For Duplicate Entry \n 7. Searsh Contact \n 8. Count Contact by City or State \n 9. Exit");
+                Console.WriteLine("Enter what you want to do : \n 1. Create Contacts \n 2. Add Contacts \n 3. Edit Contact \n 4. Delete Contact \n 5. Add Multiple Contact \n 6. Check For Duplicate Entry \n 7. Searsh Contact \n 8. Count Contact by City or State \n 9. Sort Person Name \n 10. Exit");
                 int option = Convert.ToInt32(Console.ReadLine());
                 switch (option)
                 {
@@ -88,6 +88,9 @@
                         addressBook.CountContact();
                         break;
                     case 9:
+                        addressBook.AddressBookSorting();
+                        break;
+                    case 10:
                         flag = false;
                         break;
                 }

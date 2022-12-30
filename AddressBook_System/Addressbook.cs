@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,7 @@ namespace AddressBook_System
     internal class Addressbook
     {
         List<Contact> addressList = new List<Contact>();
+        Dictionary<string, List<Contact>> dictionary = new Dictionary<string, List<Contact>>();
         public void AddContact(Contact contact)
         {
             addressList.Add(contact);
@@ -84,10 +86,10 @@ namespace AddressBook_System
         }
         public void Display()
         {
-            Console.WriteLine("Contacts in Your Device : ");
+            Console.WriteLine("\nContacts in Your Device : ");
             foreach (var contact in addressList)
             {
-                Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
+                Console.WriteLine(contact.FirstName + "\t" + contact.LastName + "\t" + contact.City + "\t" + contact.MobileNumber + "\t" + contact.Zip + "\t" + contact.Address + "\t" + contact.Email + "\t" + contact.State);
             }
         }
         public void CheckDuplicateEntry()
@@ -116,7 +118,7 @@ namespace AddressBook_System
                 var DuplicateCheck = addressList.Where(e => e.City.Equals(city));
                 foreach (var contact in DuplicateCheck)
                 {
-                    Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
+                    Console.WriteLine(contact.FirstName + "\t" + contact.LastName + "\t" + contact.City + "\t" + contact.MobileNumber + "\t" + contact.Zip + "\t" + contact.Address + "\t" + contact.Email + "\t" + contact.State);
                 }
             }
             if (input == 2)
@@ -126,7 +128,7 @@ namespace AddressBook_System
                 var DuplicateCheck = addressList.Where(e => e.State.Equals(state));
                 foreach (var contact in DuplicateCheck)
                 {
-                    Console.WriteLine(contact.FirstName + "\n" + contact.LastName + "\n" + contact.City + "\n" + contact.MobileNumber + "\n" + contact.Zip + "\n" + contact.Address + "\n" + contact.Email + "\n" + contact.State);
+                    Console.WriteLine(contact.FirstName + "\t" + contact.LastName + "\t" + contact.City + "\t" + contact.MobileNumber + "\t" + contact.Zip + "\t" + contact.Address + "\t" + contact.Email + "\t" + contact.State);
                 }
             }
             else
@@ -141,7 +143,7 @@ namespace AddressBook_System
                 Console.WriteLine("Enter City: ");
                 string city = Console.ReadLine();
                 List<Contact> cityList = addressList.FindAll(e => e.City == city);
-                Console.WriteLine("The Number of contact persons in the city {0} are {1}", city, cityList.Count());
+                Console.WriteLine("The Number of contact persons in the city {0} are : {1}", city, cityList.Count());
             }
             if (input == 2)
             {
@@ -149,7 +151,16 @@ namespace AddressBook_System
                 Console.WriteLine("Enter the state name to check its count : ");
                 string state = Console.ReadLine();
                 List<Contact> stateList = addressList.FindAll(e => e.State == state);
-                Console.WriteLine("The number of contact persons in the state {0} are {1}", state, stateList.Count());
+                Console.WriteLine("The number of contact persons in the state {0} are : {1}", state, stateList.Count());
+            }
+        }
+        public void AddressBookSorting()
+        {
+            var objSort = addressList.OrderByDescending(x => x.FirstName);
+            Console.WriteLine("\nSorted Contacts ====> ");
+            foreach (var item in objSort)
+            {
+                Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
             }
         }
     }
