@@ -5,6 +5,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.IO;
+using System.Formats.Asn1;
+using System.Globalization;
+using CsvHelper;
 
 namespace AddressBook_System
 {
@@ -204,13 +207,35 @@ namespace AddressBook_System
         }
         public void WritingUsingStreamWriter()
         {
-            Console.WriteLine("\n The Contact details in the file after writing : ");
+            Console.WriteLine("\nThe Contact details in the file after writing : ");
             String filePath = @"C:\BridgeLabz\AddressBook_System\AddressBook_System\File\TextFile.txt";
             using (StreamWriter writer = File.AppendText(filePath))
             {
                 writer.WriteLine("Account Number : 8965300075");
                 writer.Close();
                 Console.WriteLine(File.ReadAllText(filePath));
+            }
+        }
+        public void ReadWriteAsCsv()
+        {
+            string importFilePath = @"C:\BridgeLabz\AddressBook_System\AddressBook_System\File\import.csv";
+            string exportFilePath = @"C:\BridgeLabz\AddressBook_System\AddressBook_System\File\export.csv";
+            using (var reader = new StreamReader(importFilePath))
+            using (var csv = new CsvReader(reader, CultureInfo.InvariantCulture))
+            {
+                var records = csv.GetRecords<Contact>().ToList();
+                Console.WriteLine("Read data successfully from import csv");
+                foreach (var data in records)
+                {
+                    Console.WriteLine(data.FirstName + "\t" + data.LastName + "\t" + data.Address + "\t" + data.City + "\t" + data.State + "\t" + data.Zip + "\t" + data.MobileNumber + "\t" + data.Email + "\t" + data.UniqueName + "\n");
+                }
+                Console.WriteLine("\nHere reading from import csv file and write to export csv file");
+                using (var writer = new StreamWriter(exportFilePath))
+                using (var csvExport = new CsvWriter(writer, CultureInfo.InvariantCulture))
+                {
+                    csvExport.WriteRecords(records);
+                }
+                Console.WriteLine("The data is written in export csv file");
             }
         }
     }
