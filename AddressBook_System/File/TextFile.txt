@@ -1,0 +1,9 @@
+﻿﻿﻿FirstName : Karan
+LastName : Kushwaha
+Address : Civil Lines
+PhoneNumber : 9865744523
+EmailId : kk@bridgelabz.com
+City : Gorakhpur
+State : UttarPradesh
+ZIP : 320001
+Account Number : 8965300075

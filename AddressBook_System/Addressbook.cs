@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.IO;
 
 namespace AddressBook_System
 {
@@ -192,6 +193,24 @@ namespace AddressBook_System
                         Console.WriteLine(item.FirstName + "\t" + item.LastName + "\t" + item.City + "\t" + item.MobileNumber + "\t" + item.Zip + "\t" + item.Address + "\t" + item.Email + "\t" + item.State);
                     }
                     break;
+            }
+        }
+        public void ReadFile()
+        {
+            Console.WriteLine("The Contact details in the file after reading : \n ");
+            string filePath = @"C:\BridgeLabz\AddressBook_System\AddressBook_System\File\TextFile.txt";
+            string text = File.ReadAllText(filePath);
+            Console.WriteLine(text);
+        }
+        public void WritingUsingStreamWriter()
+        {
+            Console.WriteLine("\n The Contact details in the file after writing : ");
+            String filePath = @"C:\BridgeLabz\AddressBook_System\AddressBook_System\File\TextFile.txt";
+            using (StreamWriter writer = File.AppendText(filePath))
+            {
+                writer.WriteLine("Account Number : 8965300075");
+                writer.Close();
+                Console.WriteLine(File.ReadAllText(filePath));
             }
         }
     }
